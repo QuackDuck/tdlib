@@ -14,6 +14,7 @@ local gradLeft = Material("vgui/gradient-l")
 local gradUp = Material("vgui/gradient-u")
 local gradRight = Material("vgui/gradient-r")
 local gradDown = Material("vgui/gradient-d")
+local color_white = Color(255,255,255,255)
 
 
 /*---------------------------------------------------------------------------
