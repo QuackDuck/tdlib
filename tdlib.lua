@@ -614,7 +614,33 @@ classes.ReadyTextbox = function(pnl)
 		:SetTransitionFunc(function(s) return s:IsEditing() end)
 end
 
-
+classes.BorderStyle = function(pnl, borders, thick, col)
+	col = col || Color(255, 0, 0, 255)
+	thick = thick || 10
+	borders = borders || {"top","left","right","bottom"}
+	PrintTable(borders)
+	pnl:On("PaintOver", function(s, w, h)
+		for k,v in pairs(borders) do
+			if v == "top" then
+				surface.SetDrawColor(col)
+				surface.DrawRect(0, 0, w, thick)
+			end
+			if v == "left" then
+				surface.SetDrawColor(col)
+				surface.DrawRect(0, 0, thick, h)
+			end
+			if v == "right" then
+				surface.SetDrawColor(col)
+				surface.DrawRect(w-thick, 0, thick, h)
+			end
+			if v == "bottom" then
+				surface.SetDrawColor(col)
+				surface.DrawRect(0, h-thick, w, thick)
+			end
+		end
+	end)
+end
+	
 /*---------------------------------------------------------------------------
 	TDLib function which adds all the classes to your panel
 ---------------------------------------------------------------------------*/
