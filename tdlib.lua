@@ -619,21 +619,18 @@ classes.BorderStyle = function(pnl, borders, thick, col)
 	thick = thick || 10
 	borders = borders || {"top","left","right","bottom"}
 	pnl:On("PaintOver", function(s, w, h)
+		surface.SetDrawColor(col)
 		for k,v in pairs(borders) do
 			if v == "top" then
-				surface.SetDrawColor(col)
 				surface.DrawRect(0, 0, w, thick)
 			end
 			if v == "left" then
-				surface.SetDrawColor(col)
 				surface.DrawRect(0, 0, thick, h)
 			end
 			if v == "right" then
-				surface.SetDrawColor(col)
 				surface.DrawRect(w-thick, 0, thick, h)
 			end
 			if v == "bottom" then
-				surface.SetDrawColor(col)
 				surface.DrawRect(0, h-thick, w, thick)
 			end
 		end
