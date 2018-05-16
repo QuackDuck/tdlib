@@ -618,7 +618,6 @@ classes.BorderStyle = function(pnl, borders, thick, col)
 	col = col || Color(255, 0, 0, 255)
 	thick = thick || 10
 	borders = borders || {"top","left","right","bottom"}
-	PrintTable(borders)
 	pnl:On("PaintOver", function(s, w, h)
 		for k,v in pairs(borders) do
 			if v == "top" then
